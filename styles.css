@@ -1,0 +1,278 @@
+/* Modern CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(-45deg, #ff6f91, #ff8e53, #23a6d5, #23d5ab); /* Matches screenshot */
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Background */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating Particles */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: float 10s infinite ease-in-out;
+}
+
+.particle:nth-child(odd) {
+    width: 8px;
+    height: 8px;
+    animation-duration: 15s;
+}
+
+.particle:nth-child(even) {
+    width: 12px;
+    height: 12px;
+    animation-duration: 20s;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+}
+
+/* Modern Glass Form */
+form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 16px; /* Matches screenshot */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    width: 380px; /* Matches screenshot width */
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    animation: fadeIn 1s ease-out;
+}
+
+form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Fade-in Animation for Form */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Title */
+.form-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    position: relative;
+}
+
+.form-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, #23a6d5, #23d5ab);
+    border-radius: 1px;
+}
+
+/* Input Fields */
+.input-group {
+    position: relative;
+    margin-bottom: 1.2rem;
+}
+
+input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px; /* Matches screenshot */
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+input:focus {
+    border-color: #23a6d5;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(35, 166, 213, 0.1);
+}
+
+.input-group label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    color: #999;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: -8px;
+    left: 12px;
+    font-size: 12px;
+    background: white;
+    padding: 0 4px;
+    color: #23a6d5;
+}
+
+/* Password Toggle */
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 14px;
+    user-select: none;
+}
+
+.toggle-password:hover {
+    color: #23a6d5;
+}
+
+/* Register/Login Button */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px; /* Matches screenshot */
+    background: linear-gradient(45deg, #23a6d5, #23d5ab);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #23d5ab, #23a6d5);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(35, 166, 213, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(35, 166, 213, 0.2);
+}
+
+/* Form Footer */
+.form-footer {
+    margin-top: 1.2rem;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-footer a {
+    color: #23a6d5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.form-footer a:hover {
+    color: #23d5ab;
+    text-decoration: underline;
+}
+
+/* Success and Error Messages */
+.success-message {
+    color: #23d5ab;
+    font-size: 13px;
+    margin-top: 1rem;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInMessage 0.5s ease forwards;
+}
+
+.error-message {
+    color: #e73c7e;
+    font-size: 13px;
+    margin-top: 1rem;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInMessage 0.5s ease forwards;
+}
+
+@keyframes fadeInMessage {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.input-group.error input {
+    border-color: #e73c7e;
+    box-shadow: 0 0 0 3px rgba(231, 60, 126, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    form {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .form-title {
+        font-size: 1.6rem;
+    }
+
+    input {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .form-footer {
+        font-size: 12px;
+    }
+}
